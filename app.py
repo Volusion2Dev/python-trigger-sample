@@ -62,6 +62,9 @@ def _get_result(test_run):
     if result_resp.ok:
         return result_resp.json().get("data")
 
+    if result_resp.status_code == 404:
+        return { "result": "404" }
+
     return None
 
 
